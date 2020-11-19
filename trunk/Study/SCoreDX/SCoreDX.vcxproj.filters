@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{2d69b1e5-4ddf-44cf-9b0e-084e23b0f252}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DXHelper">
+      <UniqueIdentifier>{642fd807-a0fb-437c-a55b-4f88209052e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{0237d9e6-a674-4b8a-9b61-dbb44480de40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{0ae7bd4d-6eec-4a8c-9674-99fb8310dfda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{d45cb9f8-0d78-4fb9-a887-4c72f97dc4b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shape">
+      <UniqueIdentifier>{7bc97491-7ccb-43de-a417-3f976349e2f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sprite">
+      <UniqueIdentifier>{c0dbb89b-736d-466e-ba1b-5c53c9ff3799}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{635b03c4-5a72-48c6-8532-90f272a6b916}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SDevice.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SDxHelperEx.h">
+      <Filter>DXHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="SDxHelper.h">
+      <Filter>DXHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="SDxState.h">
+      <Filter>DXHelper</Filter>
+    </ClInclude>
+    <ClInclude Include="SWindow.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SUtils.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SBasisStd.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="STextureMgr.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="SMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="SDxRT.h">
+      <Filter>DXHelper</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SDevice.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SDxHelperEx.cpp">
+      <Filter>DXHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="SDxHelper.cpp">
+      <Filter>DXHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="SDxState.cpp">
+      <Filter>DXHelper</Filter>
+    </ClCompile>
+    <ClCompile Include="SWindow.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="STextureMgr.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="SMath.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="SDxRT.cpp">
+      <Filter>DXHelper</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

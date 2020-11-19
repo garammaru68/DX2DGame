@@ -1,0 +1,86 @@
+cbuffer cb : register(b0)
+{
+	matrix matWorld : packoffset(c0);
+	matrix matView : packoffset(c4);
+	matrix matProj : packoffset(c8);
+	float4 Color: packoffset(c12); 
+	float  x: packoffset(c13.x);
+	float  y: packoffset(c13.y);	
+	float  z: packoffset(c13.z);	
+	float  fTime  : packoffset(c13.w);
+}
+// 정점쉐이더 1
+// 정점 개수 만큼 호출된다.(반환=float4)
+// 정점쉐이더는 반드시 정점의 위치(SV_POSITION)를 반환해야 한다.
+
+struct VS_IN
+{
+	float3 p : POSITION;
+	float3 n : NORMAL;
+	float4 c : COLOR;
+	float2 t : TEXCOORD;
+	uint index : SV_VertexID;
+};
+struct VS_OUT
+{
+	float4 p	: SV_POSITION;
+	float3 n    : NORMAL;
+	float4 c	: COLOR0;
+	float2 t	: TEXCOORD0;
+};
+VS_OUT VS(   VS_IN vIn ) 
+{			
+	VS_OUT vOut = (VS_OUT)0;
+	// vOut.p.x = float4(vIn.p,1.0f) dot c0; // x,y,z,w
+	// vOut.p.y = float4(vIn.p,1.0f) dot c1;
+	// vOut.p.z = float4(vIn.p,1.0f) dot c2;	
+	float4 vWorld = mul(float4(vIn.p,1.0f), matWorld);	
+	float4 vView  = mul(vWorld, matView);	
+	vOut.p = mul(vView, matProj);	
+	vOut.n = vIn.n;
+	vOut.c = vIn.c;
+	vOut.t = vIn.t;	
+	return vOut;
+};
+
+Texture2D tex1 : register(t0);
+Texture2D tex2 : register(t1);
+SamplerState pointSam1 : register(s0);
+
+struct PS_IN
+{
+	float4 p	: SV_POSITION;
+	float3 n    : NORMAL;
+	float4 c    : COLOR0;
+	float2 t	: TEXCOORD0;
+};
+struct PS_OUT
+{
+	float4 c : SV_Target;
+};
+
+// 픽쉘 개수만큼 호출된다.
+PS_OUT PS( PS_IN vIn )  
+{
+	PS_OUT vOut;
+	vOut.c =  tex1.Sample(pointSam1, vIn.t);// * vIn.c;
+	return vOut;
+}
+PS_OUT LinePS( PS_IN vIn )  
+{
+	PS_OUT vOut;
+	vOut.c =  vIn.c;
+	return vOut;
+}
+PS_OUT AlphaBlend(  PS_IN vIn) 
+{
+	PS_OUT vOut;
+	float4 color1 = tex1.Sample(pointSam1, vIn.t);
+	float4 color2 = tex2.Sample(pointSam1, vIn.t);
+	float4 ret = float4(color1.r, 
+						color1.g, 
+						color1.b, 
+						color2.a);
+	vOut.c = ret*float4(Color.xyz, cos(fTime)*0.5f+0.5f) * vIn.c;
+	return vOut;
+}
